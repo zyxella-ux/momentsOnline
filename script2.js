@@ -4,7 +4,7 @@ function updateDateTime() {
    // =================================================
       //let testNow = "2026-04-25";
       //const now = testNow ? new Date(testNow) : new Date();
-      //const now = new Date();
+      const now = new Date();
 
       const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
       const dayName = days[now.getDay()];
