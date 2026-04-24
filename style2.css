@@ -1,0 +1,169 @@
+/* font: import ================================================ */
+@font-face {
+  font-family: 'variableFont';
+  src: url('./font/DecovarAlpha-VF.ttf') format('truetype')
+}
+
+
+/* Layout ================================================ */
+html,body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 1s ease-in-out;
+  /* background-color: #ff0000; */
+  /* background-image: url('./img/MultipleFormats.jpg'); */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  /* background-image: url("./img/noisy.jpg"); */
+
+  /* background:
+  url("./img/noisy.jpg")
+  radial-gradient(circle at center, white 0%, black 100%);  */
+  background-blend-mode: overlay;
+}
+.container {
+  display: grid; 
+  grid-template-columns: 1fr; 
+  grid-template-rows: 100px 184px 1.2fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    "."
+    "."
+    ".";
+  margin:10px
+}
+#bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* text ================================================ */
+#mainText1 {
+  font-family: 'variableFont';
+  font-size: 70px;
+  color: black;
+  text-align: center;
+  font-variation-settings: "BLDA" 0, "TRMD" 0, "TRMC" 0, "SKLD" 0, "TRML" 0, "SKLA" 0, "TRMF" 0, "TRMK" 287.3631, "BLDB" 287.3631, "WMX2" 0, "TRMB" 0, "TRMA" 0, "SKLB" 273.1577, "TRMG" 329.9792, "TRME" 0;
+  transition: font-size 1s ease-in-out, font-variation-settings 1s ease-in-out;
+  /*font-feature-settings: "BLDA" 152.4119, "TRMD" 0, "TRMC" 0, "SKLD" 0, "TRML" 0, "SKLA" 0, "TRMF" 0, "TRMK" 0, "BLDB" 0, "WMX2" 0, "TRMB" 0, "TRMA" 0, "SKLB" 0, "TRMG" 0, "TRME" 0;*/
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 10s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+
+#mainText2 {
+  font-family: 'variableFont';
+  font-size: 48px;
+  color: black;
+  text-align: center;
+
+	font-variation-settings: "opsz" 14, "wght" 400, "GRAD" 0, "wdth" 100, "slnt" 0, "XOPQ" 96, "YOPQ" 79, "XTRA" 468, "YTUC" 712, "YTLC" 514, "YTAS" 750, "YTDE" -203, "YTFI" 738;
+  transition: font-size 1s ease-in-out, font-variation-settings 1s ease-in-out;
+
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  width: 0;
+  white-space: pre-line;
+  /*border-right: .15em solid orange; /* The typwriter cursor */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .10em; /* Adjust as needed */
+  animation: 
+    typing 3.5s steps(40, end)forwards,
+    blink-caret .75s step-end infinite;
+
+  animation-delay: 3s;
+}
+
+/* Image ================================================ */
+#image1 {
+  /*width: 1000px;
+  padding-top: 20px;*/
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: url(#wave);
+  border-radius: 50px;
+
+  mask-image: radial-gradient(circle, white 40%, transparent 50%);
+  -webkit-mask-image: radial-gradient(circle, white 40%, transparent 50%);
+
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+
+  -webkit-mask-position: center;
+  mask-position: center;
+
+  -webkit-mask-size: 0% 0%;
+  mask-size: 0% 0%;
+  animation: revealWave 2s ease-out forwards;
+  animation-delay: 3s;
+
+}
+.wave-container {
+  padding-top: 40px;
+    width: 700px;
+    height: 500px;
+    margin:auto;
+    overflow: hidden;
+}
+
+@keyframes revealWave {
+    to {
+      -webkit-mask-size: 200% 200%;
+      mask-size: 200% 200%;
+    }
+}
+
+/* typewriter ================================================ */
+.typewriter {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+
+.variable1 {
+  font-feature-settings: "BLDA" 152.4119, "TRMD" 0, "TRMC" 0, "SKLD" 0, "TRML" 0, "SKLA" 0, "TRMF" 0, "TRMK" 0, "BLDB" 0, "WMX2" 0, "TRMB" 0, "TRMA" 0, "SKLB" 0, "TRMG" 0, "TRME" 0;
+	font-variation-settings: "BLDA" 0, "TRMD" 0, "TRMC" 0, "SKLD" 0, "TRML" 0, "SKLA" 0, "TRMF" 0, "TRMK" 287.3631, "BLDB" 287.3631, "WMX2" 0, "TRMB" 0, "TRMA" 0, "SKLB" 273.1577, "TRMG" 329.9792, "TRME" 0;
+  color: #c80000;
+}
